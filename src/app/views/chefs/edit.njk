@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+
+{%block head%}
+    <title>Editar Chef</title>
+    {%endblock%}
+
+    {% block content %}
+        <div class="chef-header">
+            <h2>Editar Chef</h2>
+            <span>
+                <form id="form-delete" action="/admin/chefs?_method=DELETE" method="post">
+                    <input type="hidden" name="id" value="{{chef.id}}">
+                    <button type="submit" id="delete">Deletar</button>
+                </form>
+                    <button form="edit-chefs" type="submit">Salvar chef</button>
+                </span>
+            </div>
+                <form id="edit-chefs" method="post" action="/admin/chefs?_method=PUT" enctype="multipart/form-data">
+
+            {%include 'chefs/fields.njk' %}
+            <input type="hidden" name="id" value="{{chef.id}}">
+
+        </form>
+            <div class="rights">
+                <p>Todos direitos reservados, receitas Foodfy.</p>
+            </div>
+    {% endblock %}

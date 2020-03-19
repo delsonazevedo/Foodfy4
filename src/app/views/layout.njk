@@ -1,0 +1,34 @@
+<html>
+
+    <head>
+        {%block head%}
+            <title>Foodfy</title>
+            {%endblock%}
+            <link rel="stylesheet" href="/styles.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        </head>
+
+        <body>
+            <header>
+                <div class="menu">
+                    <a href="/">
+                        <img src="/assets/logo.png" alt="Foodfy">
+                    </a>
+                    <div class="links">
+                        <a class="menu-item" href="/about">Sobre</a>
+                        <a class="menu-item" href="/recipes">Receitas</a>
+                        <a class="menu-item" href="/chefs">Chefs</a>
+                        <a class="menu-item" href="/admin/chefs">Admin Chefs</a>
+                        <a class="menu-item" href="/admin/recipes">Admin Receitas</a>
+                        </div>
+                    <form action="/recipes" method="GET">
+                    <div class="filter">
+                        <input type="text" name="filter" placeholder="Buscar uma receita" value={{filter}}>
+                        <button type="submit">Buscar</button>
+                    </div>
+                    </form>
+                </header>
+
+                {%block content%}{%endblock%}
+                </body>
+            </html>

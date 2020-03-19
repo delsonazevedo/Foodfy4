@@ -1,0 +1,22 @@
+{% extends "layout.njk" %}
+
+{%block head%}
+    <title>Cadastrar Chef</title>
+    {%endblock%}
+
+    {% block content %}
+        <form method="POST" action="/admin/chefs" enctype="multipart/form-data">
+            <div class="chef-header">
+                <h2>Cadastrar Chef</h2>
+                <span>
+                    <button type="submit">Salvar chef</button>
+                </span>
+            </div>
+
+            {%include 'chefs/fields.njk' %}
+
+        </form>
+            <div class="rights">
+                <p>Todos direitos reservados, receitas Foodfy.</p>
+            </div>
+    {% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.njk" %}
+
+{%block head%}
+    <title>Gerenciar Receitas - Foodfy</title>
+    {%endblock%}
+
+    {% block content %}
+        <div class="recipe-header">
+            <h2>Gerenciar Receitas</h2>
+            <span><a href="/admin/recipes/create">Nova receita</a></span>
+        </div>
+        <div class="recipes-cards">
+            {% for recipe in recipes %}
+                <div class="recipe-card">
+                    {%for file in recipeImages %}
+                    {%if file.recipe_id == recipe.id%}
+                    <img src="{{file.src}}" alt="{{file.name}}">
+                    {%endif%}
+                    {%endfor%}
+                    <div>
+                        <h3 class="title">{{recipe.title}}</h3>
+                        {%for chef in chefOptions%}
+                        {%if chef.id == recipe.chef_id%}
+                        <p class="author">por {{chef.name}}</p>
+                        {%endif%}
+                        {%endfor%}
+                        <a href="recipes/{{recipe.id}}">Visualizar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="rights">
+            <p>Todos direitos reservados, receitas Foodfy.</p>
+        </div>
+
+        <script src="/scripts.js"></script>
+    {% endblock %}

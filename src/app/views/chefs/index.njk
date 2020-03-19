@@ -1,0 +1,32 @@
+{% extends "layout.njk" %}
+
+{%block head%}
+    <title>Gerenciar Chefs - Foodfy</title>
+    {%endblock%}
+
+    {% block content %}
+        <div class="chef-header">
+            <h2>Gerenciar Chefs</h2>
+            <span><a href="/admin/chefs/create">Novo Chef</a></span>
+        </div>
+        <div class="chefs-cards">
+            {% for chef in chefs %}
+                <div class="chef-card">
+                    {%for image in images%}
+                    {%if image.id == chef.file_id %}
+                    <img src="{{image.src}}" alt="{{chef.filename}}">
+                    {%endif%}
+                    {%endfor%}
+                    <div>
+                        <p class="author">{{chef.name}}</p>
+                        <a href="/admin/chefs/{{chef.id}}">Visualizar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="rights">
+            <p>Todos direitos reservados, receitas Foodfy.</p>
+        </div>
+
+        <script src="/scripts.js"></script>
+    {% endblock %}

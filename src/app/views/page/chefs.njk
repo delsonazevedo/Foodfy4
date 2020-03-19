@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+
+{%block head%}
+    <title>Chefs - Foodfy</title>
+    {%endblock%}
+
+    {% block content %}
+        <div class="chef-header">
+        </div>
+        <div class="chefs-cards">
+            {% for chef in chefs %}
+                <div class="chef-card">
+                    {%for image in images %}
+                    {%if image.id == chef.file_id%}
+                    <img src="{{image.src}}" alt="{{chef.name}}">
+                    {%endif%}
+                    {%endfor%}
+                    <div>
+                        <p class="author">{{chef.name}}</p>
+                        {%if chef.total_recipes == 1 %}
+                        <p id="total-recipes">{{chef.total_recipes}} Receita</p>
+                        {%else%}
+                        <p id="total-recipes">{{chef.total_recipes}} Receitas</p>
+                        {%endif%}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="rights">
+            <p>Todos direitos reservados, receitas Foodfy.</p>
+        </div>
+
+        <script src="/scripts.js"></script>
+    {% endblock %}

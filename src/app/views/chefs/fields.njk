@@ -1,0 +1,35 @@
+<div class="start">
+    <div class="item">
+        <div>Nome</div>
+        <div>
+            <input type="text" name="name" placeholder="" value="{{chef.name}}">
+        </div>
+    </div>
+    {%if avatar %}
+    <div class="item">
+        <div>Avatar</div>
+        <div>
+            <input type="hidden" name="file_id" value="{{avatar.id}}">
+            <input type="text" id="avatar-url" value="{{avatar.src}}" readonly>
+        </div>
+    </div>
+    {%endif%}
+        <div class="item">
+        {%if not avatar%}
+        <div>Avatar</div>
+        {%endif%}
+        <div class="avatar">
+            <p class="btn-avatar">
+            Enviar Avatar
+            </p>
+            <input 
+            id="avatar-input"
+            type="file" 
+            name="photo"
+            accept="imgage/*"
+            > 
+        </div>
+    </div>
+</div>
+</div>
+<script src="/fields.js"></script>
